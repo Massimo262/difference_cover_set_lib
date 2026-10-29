@@ -1,0 +1,14 @@
+[project]
+name = "difference-cover-set-lib"
+version = "0.1.0"
+description = "Python library for dynamic integer sets with O(sqrt n) insert, delete, and k-th smallest in range queries"
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

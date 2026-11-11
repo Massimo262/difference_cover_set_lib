@@ -27,3 +27,10 @@ The trade-off: memory overhead from the bucket array and a fixed universe chosen
 ## Edge you will hit
 
 The universe is fixed at construction. Inserting a key outside `[0, universe)` raises `ValueError`. The range query also raises `ValueError` when fewer than `k` keys fall in `[l, r]`, because the only sensible alternative would be returning a sentinel, and callers checking for that sentinel is more error-prone than catching the exception.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
